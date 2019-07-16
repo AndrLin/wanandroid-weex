@@ -30,7 +30,7 @@ lauch.json
 /mock/
 #/plugins/*
 dist/
-/temp/
+.temp/
 assets/tools/
 
 package-lock.json
