@@ -60,17 +60,6 @@ const getEntryFile = () => {
 const webEntry = getEntryFile();
 
 
-const createLintingRule = () => ({
-  test: /\.(js|vue)$/,
-  loader: 'eslint-loader',
-  enforce: 'pre',
-  include: [helper.rootNode('src'), helper.rootNode('test')],
-  options: {
-    formatter: require('eslint-friendly-formatter'),
-    emitWarning: !config.dev.showEslintErrorsInOverlay
-  }
-})
-const useEslint = config.dev.useEslint ? [createLintingRule()] : []
 
 /**
  * Plugins for webpack configuration.
@@ -125,7 +114,7 @@ const webConfig = {
    */
   module: {
     // webpack 2.0 
-    rules: useEslint.concat([
+    rules: [
       {
         test: /\.js$/,
         use: [{
@@ -169,7 +158,7 @@ const webConfig = {
         }],
         exclude: config.excludeModuleReg
       }
-    ])
+    ]
   },
   /*
    * Add additional plugins to the compiler.

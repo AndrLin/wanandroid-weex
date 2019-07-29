@@ -1,6 +1,7 @@
 /*global Vue*/
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import SplashPage from '@/page/SplashPage'
+import MainPage from '@/page/MainPage'
 
 Vue.use(Router)
 
@@ -9,7 +10,12 @@ export const router = new Router({
     {
       path: '/',
       name: 'HelloWorld',
-      component: HelloWorld
+      component: SplashPage
+    },
+    {
+      path: '/main',
+      name: 'main',
+      component: MainPage
     }
   ]
 })

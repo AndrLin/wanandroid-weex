@@ -30,9 +30,11 @@ lauch.json
 /mock/
 #/plugins/*
 dist/
-.temp/
+/temp/
 assets/tools/
 
 package-lock.json
 
 ignoreConfig.js
+
+/platforms/ios/Pods
