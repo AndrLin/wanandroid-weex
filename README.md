@@ -1,4 +1,6 @@
 # Weex 开发的不完整 Wan Android 客户端
+
+![首页](./screenshot/1.jpg)
 # 快速运行
 
 ## 运行android
