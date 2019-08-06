@@ -5,7 +5,7 @@ export default {
             return weex.requireModule('navigator')
         },
         toBack() {
-            if(WXEnvironment.platform === 'Web') {
+            if(WXEnvironment.platform.toLowerCase() === 'web') {
                 this.$router.back()
             }  else {
                 this.getNavigator().pop({animated: "true"})
@@ -34,15 +34,23 @@ export default {
             }
             return nativeBase;
         },
-        jumpInter(to) {
-            if (this.$router) {
-                this.$router.push(to)
+        push(to) {
+            if(WXEnvironment.platform.toLowerCase() === 'web') {
+                if (this.$router) {
+                    this.$router.push(to)
+                }
+            } else {
+                let path = this.getBaseUrl(to)
+                this.getNavigator().push({
+                    url: path,
+                    animated: "true"
+                })
             }
         },
         jumpWithParams(to, params) {
-            if(WXEnvironment.platform === 'Web') {
+            if(WXEnvironment.platform.toLowerCase() === 'web') {
                 if (this.$router) {
-                    this.$router.push({name: to, params: params})
+                    this.$router.push({name: to, query: params})
                 }
             } else {
                 let path = this.getBaseUrl(to);
@@ -82,8 +90,8 @@ export default {
             return result;
         },
         getQuery() {
-            if (WXEnvironment.platform === 'Web') {
-                return this.$route.params;
+            if (WXEnvironment.platform.toLowerCase() === 'web') {
+                return this.$route.query;
             } else {
                 return this.getQueryData(weex.config.bundleUrl);
             }

@@ -43,7 +43,16 @@ const config = {
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
     cssSourceMap: false,
-    proxyTable: {},
+    proxyTable: {
+      '/api': {
+        target: 'https://www.wanandroid.com', // 接口域名
+        secure: true, // 如果是https接口，需要配置这个参数
+        changeOrigin: true, // 如果接口跨域，需要配置
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    },
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,

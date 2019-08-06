@@ -3,17 +3,18 @@
                :tab-styles="tabStyles"
                title-type="iconFont"
                @wxcTabBarCurrentTabSelected="wxcTabBarCurrentTabSelected">
-            <div class="item-container" :style="contentStyle"><text>首页</text></div>
+            <div class="item-container" :style="contentStyle"><home-page></home-page></div>
             <div class="item-container" :style="contentStyle"><text>体系</text></div>
             <div class="item-container" :style="contentStyle"><text>项目</text></div>
             <div class="item-container" :style="contentStyle"><text>我的主页</text></div>
-        </wxc-tab-bar>
+    </wxc-tab-bar>
 </template>
 
 <script>
 import {Utils, WxcTabBar} from 'weex-ui'
 import {getIconFontPath} from '../config/IconConfig'
 import {getRealScreenHeight} from '../config/Config'
+import HomePage from './home/HomePage'
 
 const tabIconFontTitles = [
   {
@@ -54,7 +55,7 @@ const tabIconFontStyles = {
 
 export default {
   components: {
-    WxcTabBar
+    WxcTabBar, HomePage
   },
   data: () => ({
     tabTitles: tabIconFontTitles,
@@ -76,9 +77,9 @@ export default {
 <style scoped>
 .item-container {
   width: 750px;
-  background-color: rgb(248, 248, 248);
-  align-items: center;
-  justify-content: center;
   overflow: scroll;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #cccccc;
 }
 </style>

@@ -10,6 +10,7 @@ const hasPluginInstalled = fs.existsSync(helper.rootNode(config.pluginFilePath))
 const isWin = /^win/.test(process.platform);
 const weexEntry = {
   'index': helper.root('entry.js')
+  // 'web': helper.root('entry/web.js')
 }
 
 const getEntryFileContent = (source, routerpath) => {
@@ -205,6 +206,11 @@ const weexConfig = {
           options: vueLoaderConfig({useVue: false})
         }],
         exclude: config.excludeModuleReg
+      },
+      {
+        test: /\.scss$/,
+        loader: "css!sass",
+        exclude: /node_modules/
       }
     ]
   },

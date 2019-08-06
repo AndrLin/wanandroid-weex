@@ -3,6 +3,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import SplashPage from '@/page/SplashPage'
 import MainPage from '@/page/MainPage'
+import WebView from '@/page/common/WebView'
 
 Vue.use(Router)
 
@@ -17,6 +18,11 @@ export const router = new Router({
       path: '/main',
       name: 'main',
       component: MainPage
+    },
+    {
+      path: '/web',
+      name: 'web',
+      component: WebView
     }
   ]
 })

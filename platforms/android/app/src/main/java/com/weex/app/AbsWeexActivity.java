@@ -326,6 +326,13 @@ public abstract class AbsWeexActivity extends AppCompatActivity implements IWXRe
   }
 
   @Override
+  public void onBackPressed() {
+    if (!mInstance.onBackPressed()) {
+      super.onBackPressed();
+    }
+  }
+
+  @Override
   public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
     if (mInstance != null) {
       mInstance.onRequestPermissionsResult(requestCode, permissions, grantResults);

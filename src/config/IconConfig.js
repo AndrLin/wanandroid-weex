@@ -16,7 +16,7 @@ export function addIconFontSupport (dom, abs) {
   if (dom) {
     dom.addRule('fontFace', {
       'fontFamily': "wxcIconFont",
-      'src': `url('${getIonFontPath(abs)}')`
+      'src': `url('${getIconFontPath(abs)}')`
     })
   }
 }
