@@ -1,4 +1,4 @@
-# Weex 开发的不完整 Wan Android 客户端（弃）
+# Weex 开发的不完整 Wan Android 客户端
 # 快速运行
 
 ## 运行android
